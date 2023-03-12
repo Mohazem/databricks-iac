@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "root_storage_bucket" {
 }
 
 resource "aws_s3_bucket_acl" "this" {
-  bucket = aws_s3_bucket.this.id
+  bucket = "${local.prefix}-rootbucket"
   acl    = "private"
 }
 
