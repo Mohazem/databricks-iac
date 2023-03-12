@@ -28,7 +28,7 @@ provider "databricks" {
 }
 
 // Create a Databricks personal access token, to provision entities within the workspace.
-resource "databricks_token" "pat" {
+/*resource "databricks_token" "pat" {
   provider = databricks.created_workspace
   comment  = "Terraform Provisioning"
   lifetime_seconds = 86400
@@ -38,4 +38,4 @@ resource "databricks_token" "pat" {
 output "databricks_token" {
   value     = databricks_token.pat.token_value
   sensitive = true
-}
+}*/
