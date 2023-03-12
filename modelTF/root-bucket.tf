@@ -4,7 +4,7 @@ resource "aws_s3_bucket" "root_storage_bucket" {
   bucket = "${local.prefix}-rootbucket"
   acl    = "private"
   versioning {
-    enabled = false
+    status = "Enabled"
   }
   force_destroy = true
   tags = merge(var.tags, {
