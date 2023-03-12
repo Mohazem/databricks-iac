@@ -2,11 +2,15 @@
 // See https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/latest
 resource "aws_s3_bucket" "root_storage_bucket" {
   bucket = "${local.prefix}-rootbucket"
-  acl    = "private"
   force_destroy = true
   tags = merge(var.tags, {
     Name = "${local.prefix}-rootbucket"
   })
+}
+
+resource "aws_s3_bucket_acl" "this" {
+  bucket = aws_s3_bucket.this.id
+  acl    = "private"
 }
 
 // Ignore public access control lists (ACLs) on the S3 root bucket and on any objects that this bucket contains.
